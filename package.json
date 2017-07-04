@@ -1,0 +1,21 @@
+{
+  "name": "Hachart",
+  "version": "0.0.1",
+  "description": "beautiful auto layout flowchart",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava test"
+  },
+  "keywords": [
+    "composition"
+  ],
+  "author": "jinhia.wang",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.19.1"
+  },
+  "dependencies": {
+    "dagre": "^0.7.4",
+    "konva": "^1.6.3"
+  }
+}
