@@ -1,18 +1,10 @@
 const Konva = require('konva');
 
-module.exports = function(input, opt) {
-  const {container} = input;
-  const {containerID} = opt;
-  var width = container.width;
-  var height = container.height;
-  var stage = new Konva.Stage({
-    container: containerID,
-    width: width,
-    height: height
-  });
-
+module.exports = function(stage, input) {
+  const {width, height} = input.container;
+  stage.setWidth(width);
+  stage.height(height);
   const layer = new Konva.Layer();
-
   const Text = function(x, y, width, height, label, style) {
     const opt = Object.assign({}, style, {text: label, width, x, y});
     const text = new Konva.Text(opt);
