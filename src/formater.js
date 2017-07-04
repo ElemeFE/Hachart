@@ -22,6 +22,7 @@ module.exports = function(input) {
     const {string} = node;
     const f = Object.assign({}, defaultFontType, type.fontType);
     const {width, height, fontType} = autoWidth(string, f, type.maxWidth);
+    delete fontType.width;
     type.fontType = fontType;
     node.width = type.width || width;
     node.height = type.height || height;
