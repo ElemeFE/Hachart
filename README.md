@@ -1,5 +1,6 @@
 # Hachart
 
+[online edit website](https://wangdashuaihenshuai.github.io/demo/flow-chart/)
 HaHa, this is a flowchart generator.
 
 ![example](https://fuss10.elemecdn.com/7/5b/706949379f6696b335ca13c8da67epng.png)
@@ -58,9 +59,7 @@ container.draw(output)
 
 # API
 
-## compiler
-
-### compiler(code, options)
+## compiler(code, options)
 
 **code**
 
