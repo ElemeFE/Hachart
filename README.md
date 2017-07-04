@@ -29,11 +29,16 @@ npm install ha-chart --save
 const {compiler, layout, Container} = require('Hachart')
 
 const code = `
+type CondStyle struct{
+  "extend": "deafultShape",
+  "fill": "#fcb738"
+}
+
 def start("action")
   () -> cond
 end
 
-def cond("is 10?")
+def cond:CondStyle("is 10?")
   ("yes") -> step1
   ("no") -> step2
 end
@@ -49,5 +54,6 @@ const output = layout(compiler(code))
 const container = new Container({containerID: "container"})
 container.draw(output)
 ```
+![example](https://fuss10.elemecdn.com/3/42/aad462d88525b6d46512110ffd3c0png.png)
 
 # API
