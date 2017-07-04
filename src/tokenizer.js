@@ -30,7 +30,7 @@ module.exports = function(str) {
   };
 
   const space = function() {
-    while ((str[index] === ' ' || str[index] === '\n') && !isEnd()) {
+    while ((str[index] === ' ' || str[index] === '\n' || str[index] === '\t') && !isEnd()) {
       index++;
     }
     return index;
