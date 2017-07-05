@@ -1,5 +1,5 @@
 {
-  "name": "Hachart",
+  "name": "ha-chart",
   "version": "0.0.1",
   "description": "beautiful auto layout flowchart",
   "main": "index.js",

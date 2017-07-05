@@ -28,7 +28,7 @@ npm install ha-chart --save
 ```
 
 ```js
-const {compiler, layout, Container} = require('Hachart')
+const {compiler, layout, Container} = require('ha-chart')
 
 const code = `
 type CondStyle struct{
