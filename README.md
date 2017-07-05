@@ -124,6 +124,13 @@ you can change the default style at compiler code using options.
   }
 }
 ```
+draw with [konvajs](https://konvajs.github.io)
+
+[more defaultShape and defaultAnnotation Parameters](https://konvajs.github.io/api/Konva.Arc.html)
+
+[more defaultArrow Parameters](https://konvajs.github.io/api/Konva.Line.html)
+
+[more default fontType parameters](https://konvajs.github.io/api/Konva.Text.html)
 
 ## layout(input, options)
 
