@@ -17,7 +17,25 @@ module.exports = function(stage, input) {
     const opt = Object.assign({}, style, {x, y, width, height});
     var rect = new Konva.Rect(opt);
     layer.add(rect);
-    Text(x, y, width, height, label, style.fontType);
+    
+    labels = label.split("|||")
+
+    let text_y_position = y
+    let box_y_position = y
+
+    for (let index = 0; index < labels.length; index++) {
+      let font_style = index > 0 ? style.stepValueFontType : style.fontType
+      let label_node = Text(
+        x,
+        text_y_position,
+        width,
+        height,
+        labels[index],
+        font_style
+      )
+      const text_height = label_node.height()
+      text_y_position += text_height - style.fontType.padding * 2.5
+    }
   };
 
   const Line = function(a, type) {
