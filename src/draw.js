@@ -33,8 +33,8 @@ module.exports = function(stage, input) {
         labels[index],
         font_style
       )
-      const text_height = label_node.height()
-      text_y_position += text_height - style.fontType.padding * 2.5
+      // const text_height = label_node.height()
+      // text_y_position += text_height - style.fontType.padding * 2.5
     }
   };
 
