@@ -9,6 +9,7 @@ module.exports = function(stage, input) {
     const opt = Object.assign({}, style, {text: label, width, x, y});
     const text = new Konva.Text(opt);
     layer.add(text);
+    return text;
   };
 
   const Box = function(centerX, centerY, width, height, label, style) {
@@ -33,8 +34,8 @@ module.exports = function(stage, input) {
         labels[index],
         font_style
       )
-      // const text_height = label_node.height()
-      // text_y_position += text_height - style.fontType.padding * 2.5
+      const text_height = label_node.height()
+      text_y_position += text_height - style.fontType.padding * 2.5
     }
   };
 
