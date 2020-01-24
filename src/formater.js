@@ -1,11 +1,12 @@
 const {getTextLayout} = require('./util.js');
 
-const autoWidth = function(label, fontType, maxWidth) {
-  let {width, height} = getTextLayout(label, fontType);
+const autoWidth = function(label, fontType, stepValueFontType, maxWidth) {
+  let {width, height} = getTextLayout(label, fontType, stepValueFontType);
   if (maxWidth) {
     if (width > maxWidth) {
       fontType.width = maxWidth;
-      return autoWidth(label, fontType);
+      stepValueFontType.width = maxWidth;
+      return autoWidth(label, fontType, stepValueFontType);
     }
   }
   return {width, height, fontType};
@@ -21,7 +22,7 @@ module.exports = function(input) {
     const type = types[node.type];
     const {string} = node;
     const f = Object.assign({}, defaultFontType, type.fontType);
-    const {width, height, fontType} = autoWidth(string, f, type.maxWidth);
+    const {width, height, fontType} = autoWidth(string, f, type.stepValueFontType, type.maxWidth);
     delete fontType.width;
     type.fontType = fontType;
     node.width = type.width || width;
