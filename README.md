@@ -18,7 +18,7 @@ npm install ha-chart --save
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>flow-draw</title>
   </head>
   <body>
@@ -28,7 +28,7 @@ npm install ha-chart --save
 ```
 
 ```js
-const {compiler, layout, Container} = require('ha-chart')
+const { compiler, layout, Container } = require('ha-chart');
 
 const code = `
 type CondStyle struct{
@@ -50,12 +50,13 @@ end
 
 def step2("step 2")
 end
-`
+`;
 
-const output = layout(compiler(code))
-const container = new Container({containerID: "container"})
-container.draw(output)
+const output = layout(compiler(code));
+const container = new Container({ containerID: 'container' });
+container.draw(output);
 ```
+
 ![example](https://fuss10.elemecdn.com/3/42/aad462d88525b6d46512110ffd3c0png.png)
 
 # API
@@ -80,6 +81,7 @@ end
 **options**
 
 you can change the default style at compiler code using options.
+
 ```js
 {
   type: {
@@ -89,7 +91,7 @@ you can change the default style at compiler code using options.
       maxWidth: 180,
       fontType: {
         fontSize: 16,
-        fontFamily: 'Calibri',
+        fontFamily: 'Roboto',
         padding: 20,
         fill: '#fff',
         fontStyle: 'bold',
@@ -100,7 +102,7 @@ you can change the default style at compiler code using options.
       fill: '#fff',
       fontType: {
         fontSize: 16,
-        fontFamily: 'Calibri',
+        fontFamily: 'Roboto',
         padding: 5,
         fill: '#8699a3',
         fontStyle: 'bold',
@@ -109,7 +111,7 @@ you can change the default style at compiler code using options.
     },
     defaultFontType: {
       'fontSize': 16,
-      'fontFamily': 'Calibri',
+      'fontFamily': 'Roboto',
       'fill': '#fff',
       'fontStyle': 'bold',
       'align': 'center',
@@ -124,6 +126,7 @@ you can change the default style at compiler code using options.
   }
 }
 ```
+
 draw with [konvajs](https://konvajs.github.io)
 
 [more defaultShape and defaultAnnotation Parameters](https://konvajs.github.io/api/Konva.Arc.html)
@@ -135,22 +138,24 @@ draw with [konvajs](https://konvajs.github.io)
 ## layout(input, options)
 
 **input**
+
 ```js
-const input = compiler(code)
+const input = compiler(code);
 ```
+
 **options**
 
-name | defaultValue | description
------|---------------|------------
-rankdir |	TB |	Direction for rank nodes. Can be TB, BT, LR, or RL, where T = top, B = bottom, L = left, and R = right.
-align |	TB |	Alignment  for rank nodes. Can be UL, UR, DL, or DR, where U = up, D = down, L = left, and R = right.
-nodesep |	50	| Number of pixels that separate nodes horizontally in the layout.
-edgesep |	10	| Number of pixels that separate edges horizontally in the layout.
-ranksep |	50	| Number of pixels between each rank in the layout.
-marginx |	0	| Number of pixels to use as a margin around the left and right of the graph.
-marginy |	0	| Number of pixels to use as a margin around the top and bottom of the graph.
-acyclicer |	undefined |	If set to greedy, uses a greedy heuristic for finding a feedback arc set for a graph. A feedback arc set is a set of edges that can be removed to make a graph acyclic.
-ranker |	network-simplex	| Type of algorithm to assigns a rank to each node in the input graph. Possible values: network-simplex, tight-tree or longest-path
+| name      | defaultValue    | description                                                                                                                                                             |
+| --------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rankdir   | TB              | Direction for rank nodes. Can be TB, BT, LR, or RL, where T = top, B = bottom, L = left, and R = right.                                                                 |
+| align     | TB              | Alignment for rank nodes. Can be UL, UR, DL, or DR, where U = up, D = down, L = left, and R = right.                                                                    |
+| nodesep   | 50              | Number of pixels that separate nodes horizontally in the layout.                                                                                                        |
+| edgesep   | 10              | Number of pixels that separate edges horizontally in the layout.                                                                                                        |
+| ranksep   | 50              | Number of pixels between each rank in the layout.                                                                                                                       |
+| marginx   | 0               | Number of pixels to use as a margin around the left and right of the graph.                                                                                             |
+| marginy   | 0               | Number of pixels to use as a margin around the top and bottom of the graph.                                                                                             |
+| acyclicer | undefined       | If set to greedy, uses a greedy heuristic for finding a feedback arc set for a graph. A feedback arc set is a set of edges that can be removed to make a graph acyclic. |
+| ranker    | network-simplex | Type of algorithm to assigns a rank to each node in the input graph. Possible values: network-simplex, tight-tree or longest-path                                       |
 
 ## Container
 

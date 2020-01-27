@@ -9,7 +9,7 @@ const defaultType = {
     maxWidth: 180,
     fontType: {
       fontSize: 16,
-      fontFamily: 'Calibri',
+      fontFamily: 'Roboto',
       padding: 20,
       fill: '#fff',
       fontStyle: 'bold',
@@ -20,7 +20,7 @@ const defaultType = {
     fill: '#fff',
     fontType: {
       fontSize: 16,
-      fontFamily: 'Calibri',
+      fontFamily: 'Roboto',
       padding: 5,
       fill: '#8699a3',
       fontStyle: 'bold',
@@ -28,12 +28,12 @@ const defaultType = {
     }
   },
   defaultFontType: {
-    'fontSize': 16,
-    'fontFamily': 'Calibri',
-    'fill': '#fff',
-    'fontStyle': 'bold',
-    'align': 'center',
-    'padding': 20
+    fontSize: 16,
+    fontFamily: 'Roboto',
+    fill: '#fff',
+    fontStyle: 'bold',
+    align: 'center',
+    padding: 20
   },
   defaultArrow: {
     stroke: '#8699a3',
