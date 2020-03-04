@@ -1,6 +1,6 @@
 {
   "name": "ha-chart",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "beautiful auto layout flowchart",
   "main": "index.js",
   "scripts": {
