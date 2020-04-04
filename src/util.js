@@ -16,6 +16,6 @@ exports.getTextLayout = function(label, style, stepValueFontType) {
     width = Math.max(t.getWidth(), width);
     height = height + t.getHeight() - 52;
   }
-  height = height - 4;
+  height = height - 8;
   return { width, height };
 };
