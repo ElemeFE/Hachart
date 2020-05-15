@@ -1,12 +1,13 @@
 const Konva = require('konva');
 
 module.exports = function(stage, input) {
-  const {width, height} = input.container;
-  stage.setWidth(width);
+  const { width, height } = input.container;
+  let changedWidth = width + 20;
+  stage.setWidth(changedWidth);
   stage.height(height);
   const layer = new Konva.Layer();
   const Text = function(x, y, width, height, label, style) {
-    const opt = Object.assign({}, style, {text: label, width, x, y});
+    const opt = Object.assign({}, style, { text: label, width, x, y });
     const text = new Konva.Text(opt);
     layer.add(text);
     return text;
@@ -15,17 +16,17 @@ module.exports = function(stage, input) {
   const Box = function(centerX, centerY, width, height, label, style) {
     const x = centerX - width / 2;
     const y = centerY - height / 2;
-    const opt = Object.assign({}, style, {x, y, width, height});
+    const opt = Object.assign({}, style, { x, y, width, height });
     var rect = new Konva.Rect(opt);
     layer.add(rect);
-    
-    labels = label.split("|||")
 
-    let text_y_position = y
-    let box_y_position = y
+    labels = label.split('|||');
+
+    let text_y_position = y;
+    let box_y_position = y;
 
     for (let index = 0; index < labels.length; index++) {
-      let font_style = index > 0 ? style.stepValueFontType : style.fontType
+      let font_style = index > 0 ? style.stepValueFontType : style.fontType;
       let label_node = Text(
         x,
         text_y_position,
@@ -33,9 +34,9 @@ module.exports = function(stage, input) {
         height,
         labels[index],
         font_style
-      )
-      const text_height = label_node.height()
-      text_y_position += text_height - style.fontType.padding * 2.5
+      );
+      const text_height = label_node.height();
+      text_y_position += text_height - style.fontType.padding * 2.5;
     }
   };
 
@@ -45,7 +46,7 @@ module.exports = function(stage, input) {
       points.push(p.x, p.y);
     });
     const shortPoints = shortLine(points);
-    const opt = Object.assign({}, type, {points: shortPoints});
+    const opt = Object.assign({}, type, { points: shortPoints });
     const line = new Konva.Line(opt);
     layer.add(line);
     const arrowPoints = points.slice(points.length - 4, points.length);
@@ -69,14 +70,14 @@ module.exports = function(stage, input) {
     return points;
   };
 
-  const {nodesInfo, labelInfo, arrowsInfo, types} = input;
+  const { nodesInfo, labelInfo, arrowsInfo, types } = input;
 
   for (let a of arrowsInfo) {
     const type = types[a.type];
     Line(a, type);
   }
   for (let l of labelInfo) {
-    const {x, y, width, height, label} = l;
+    const { x, y, width, height, label } = l;
     const type = types['defaultAnnotation'];
     Box(x, y, width, height, label, type);
   }
@@ -84,7 +85,7 @@ module.exports = function(stage, input) {
   for (let name of Object.keys(nodesInfo)) {
     const node = nodesInfo[name];
     const type = types[node.type];
-    const {width, height, x, y, string} = node;
+    const { width, height, x, y, string } = node;
     Box(x, y, width, height, string, type);
   }
   stage.add(layer);
